@@ -1,0 +1,42 @@
+<section class="hero" style="padding-bottom:24px">
+  <div class="wrap narrow" style="display:grid;gap:18px">
+    <span class="pill soon" style="justify-self:start">Coming soon to Android and iPhone</span>
+    <h1>Join the waitlist.</h1>
+    <p class="lede">RosterBots opens on Android first, with iPhone right behind it. Leave your email and we'll tell you when it's ready for your phone. The waitlist gets in first.</p>
+  </div>
+</section>
+
+<section style="padding-top:8px">
+  <div class="wrap narrow">
+    <form class="card form" data-waitlist data-product="rosterbots" novalidate>
+      <fieldset class="field">
+        <legend>Your phone</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="platform" value="android" required><span>Android</span></label>
+          <label class="choice"><input type="radio" name="platform" value="iphone"><span>iPhone</span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@gmail.com">
+        <p class="hint" data-hint-android hidden>Use the Gmail address you use on Google Play. That's the address Google needs to let you into the test.</p>
+        <p class="hint" data-hint-iphone hidden>Any email works. That's where the TestFlight invite will go.</p>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" type="submit">Join the waitlist</button>
+      <p class="notice" role="status" hidden></p>
+      <p class="hint">We'll only use your email to tell you about RosterBots. Details in our <a href="{{root}}privacy/">privacy policy</a>.</p>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="section-head"><h2>What happens next</h2></div>
+    <ul class="checks">
+      <li>Android first. When the test opens, we add the Gmail you gave us and email you a link to install RosterBots from Google Play.</li>
+      <li>iPhone soon after, through Apple's TestFlight.</li>
+      <li>You'll need an ESPN fantasy football league. That's the only host RosterBots supports for now.</li>
+    </ul>
+  </div>
+</section>

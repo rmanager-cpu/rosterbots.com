@@ -1,0 +1,4 @@
+# Recaps must stay hidden, and a public repo can't hide anything, so they are not published
+# here. The page builds locally (node build.mjs) for when there is a private place to host it.
+recaps/
+src/pages/recaps.html
