@@ -185,3 +185,9 @@ details p { color: var(--muted); padding-bottom: 18px; max-width: 68ch; }
 
 /* The header's button keeps its white text; the nav colour is for plain links */
 .nav a.btn, .nav a.btn:hover { color: #fff; }
+
+/* The brand posters */
+.poster { border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); width: min(100%, 460px); }
+.posters figure { margin: 0; display: grid; gap: 12px; }
+.posters img { border-radius: var(--radius-lg); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45); width: 100%; }
+.posters figcaption { color: var(--muted); font-size: 15px; }

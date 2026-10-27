@@ -63,7 +63,7 @@ const pages = [
         publisher: { "@type": "Organization", name: "Turbo Devs", logo: { "@type": "ImageObject", url: `${ORIGIN}/assets/icon-512.png` } },
         about: [{ "@type": "Person", name: "Rome Odunze" }, { "@type": "Thing", name: "Fantasy football" }],
         mainEntityOfPage: `${ORIGIN}/odunze/`,
-        image: `${ORIGIN}/assets/og.png`,
+        image: `${ORIGIN}/assets/og.jpg`,
       },
     ],
   },
@@ -144,7 +144,7 @@ ${p.noindex ? '<meta name="robots" content="noindex, nofollow">' : `<link rel="c
 <meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<meta property="og:image" content="${ORIGIN}/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="${root}assets/favicon-32.png">
 <link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">
