@@ -175,5 +175,6 @@ for (const p of pages) {
 const today = "2026-10-26";
 const urls = pages.filter(p => !p.noindex).map(p => `  <url><loc>${ORIGIN}/${p.path ? p.path + "/" : ""}</loc><lastmod>${today}</lastmod></url>`);
 writeFileSync(join(here, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
-writeFileSync(join(here, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
+// Recaps are unlisted: the page carries noindex, and the audio itself is kept from crawlers.
+writeFileSync(join(here, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /recaps/*.mp3\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 console.log("wrote sitemap.xml and robots.txt");

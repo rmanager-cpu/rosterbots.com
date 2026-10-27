@@ -1,4 +1,3 @@
-# Recaps must stay hidden, and a public repo can't hide anything, so they are not published
-# here. The page builds locally (node build.mjs) for when there is a private place to host it.
-recaps/
-src/pages/recaps.html
+# Nothing ignored. Recaps are published unlisted (owner, Oct 26): not linked from any page, not
+# in the sitemap, noindex on the page, and robots.txt keeps crawlers off the audio. Anyone with
+# the link, or browsing this public repo, can still find them.

@@ -7,7 +7,7 @@ The RosterBots website: plain HTML and CSS, no framework, built by `node build.m
   privacy, delete account, 404. `sitemap.xml` and `robots.txt` are generated.
 - The waitlist forms post to the `waitlist` table in Supabase with the publishable key
   (`assets/waitlist.js`); the table takes inserts only.
-- Recaps are deliberately not in this public repo (see `.gitignore`).
+- Recaps are published unlisted at /recaps/: no links, not in the sitemap, noindex, and robots.txt keeps crawlers off the MP3.
 
 ## Going live on www.rosterbots.com
 
