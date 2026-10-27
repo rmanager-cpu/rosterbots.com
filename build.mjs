@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const ORIGIN = "https://www.rosterbots.com";
+// Cloudflare Web Analytics, on the TurboTips account: counts page views with no cookies. The token
+// only names the site to Cloudflare and is public by design.
+const CF_BEACON = "bef8f31d6a1a4deda575c5db79d40670";
 // Each stylesheet and script link carries a hash of the file, so a browser holding the old copy
 // (GitHub Pages caches for 10 minutes) fetches the new one as soon as the page changes.
 const asset = f => `assets/${f}?v=${createHash("sha256").update(readFileSync(join(here, "assets", f))).digest("hex").slice(0, 8)}`;
@@ -164,6 +167,7 @@ ${nav}
 ${body}
 </main>
 ${footer}
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${CF_BEACON}"}'></script>
 ${p.script ? `<script src="${root}${asset(p.script)}" defer></script>\n` : ""}</body>
 </html>
 `;
