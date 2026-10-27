@@ -3,10 +3,14 @@
 // preview address and on www.rosterbots.com. Run: node build.mjs
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const ORIGIN = "https://www.rosterbots.com";
+// Each stylesheet and script link carries a hash of the file, so a browser holding the old copy
+// (GitHub Pages caches for 10 minutes) fetches the new one as soon as the page changes.
+const asset = f => `assets/${f}?v=${createHash("sha256").update(readFileSync(join(here, "assets", f))).digest("hex").slice(0, 8)}`;
 
 const ORG = {
   "@context": "https://schema.org",
@@ -151,8 +155,8 @@ ${p.noindex ? '<meta name="robots" content="noindex, nofollow">' : `<link rel="c
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="${root}assets/site.css">
-${p.fonts ? `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${p.fonts}&display=swap">\n` : ""}${p.css ? `<link rel="stylesheet" href="${root}assets/${p.css}">\n` : ""}${ld.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
+<link rel="stylesheet" href="${root}${asset("site.css")}">
+${p.fonts ? `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${p.fonts}&display=swap">\n` : ""}${p.css ? `<link rel="stylesheet" href="${root}${asset(p.css)}">\n` : ""}${ld.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
 </head>
 <body>
 ${nav}
@@ -160,7 +164,7 @@ ${nav}
 ${body}
 </main>
 ${footer}
-${p.script ? `<script src="${root}assets/${p.script}" defer></script>\n` : ""}</body>
+${p.script ? `<script src="${root}${asset(p.script)}" defer></script>\n` : ""}</body>
 </html>
 `;
 }
