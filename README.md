@@ -24,3 +24,10 @@ root and `www` (keep the MX records: they forward support@rosterbots.com), then 
 
 Then add a `CNAME` file containing `www.rosterbots.com` (or set the custom domain in the
 repo's Pages settings) and tick Enforce HTTPS once the certificate is issued.
+
+## Search engines
+
+The 32-character `.txt` file at the root is the IndexNow key: it proves to Bing that pings
+for this host come from us. After a deploy that changes pages, run `node indexnow.mjs` to
+tell Bing (which ChatGPT search and Copilot read) about every page in the sitemap. Google
+doesn't take IndexNow; it reads the sitemap through Search Console.
