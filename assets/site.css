@@ -36,7 +36,7 @@ a { color: var(--orange); }
 a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
 
 .wrap {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
@@ -100,9 +100,9 @@ section { padding-block: 56px; }
 .grid.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid > * { min-width: 0; }
 
-/* Hero */
+/* Hero: the home page splits copy and poster; every other page's hero is one column */
 .hero { padding-block: 56px 40px; }
-.hero .wrap { display: grid; gap: 40px; align-items: center; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.hero .split { display: grid; gap: 40px; align-items: center; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .hero-copy { display: grid; gap: 22px; justify-items: start; }
 .hero-art { justify-self: center; width: min(100%, 520px); }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -191,3 +191,21 @@ details p { color: var(--muted); padding-bottom: 18px; max-width: 68ch; }
 .posters figure { margin: 0; display: grid; gap: 12px; }
 .posters img { border-radius: var(--radius-lg); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45); width: 100%; }
 .posters figcaption { color: var(--muted); font-size: 15px; }
+
+/* Big screens: the column opens up to 1280px, so the type, the poster and the spacing grow with it */
+@media (min-width: 1100px) {
+  body { font-size: 18px; }
+  section { padding-block: 80px; }
+  .hero { padding-block: 72px 64px; }
+  .hero .split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; }
+  .hero .split h1 { font-size: 76px; }
+  .hero .poster { width: min(100%, 560px); }
+  h2 { font-size: 44px; }
+  h3 { font-size: 22px; }
+  .lede { font-size: 22px; }
+  .brand { font-size: 21px; }
+  .brand img { width: 44px; height: 44px; }
+  .nav { gap: 6px 26px; }
+  .nav a { font-size: 16px; }
+  .card { padding: 32px; }
+}
